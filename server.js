@@ -8,6 +8,9 @@ var corsOptions = {
   origin: "http://localhost:8081"
 };
 
+app.use(express.json())
+app.use(express.static('pics'))
+
 app.use(cors(corsOptions));
 
 // parse requests of content-type - application/json
