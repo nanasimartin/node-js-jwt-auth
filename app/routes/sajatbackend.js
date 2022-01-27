@@ -36,6 +36,30 @@ module.exports = function(app) {
     connection.end()    
 
   })
+
+  app.post('/adatfelvitel', (req, res) => {
+    var mysql = require('mysql')
+    var connection = mysql.createConnection({
+      host: 'localhost',
+      user: 'root',
+      password: '',
+      database: 'foci'
+    })
+    
+    connection.connect()
+    
+    
+    connection.query("INSERT INTO kerdesek  VALUES (NULL, '"+req.body.bevitel1+"', '"+req.body.bevitel2+"','"+req.body.bevitel3+"','"+req.body.bevitel4+"','"+req.body.bevitel5+"','"+req.body.bevitel6+"','"+req.body.bevitel7+"','"+req.body.bevitel8+"')", function (err, rows, fields) {
+      if (err) throw err
+    
+      console.log("Sikeres feltoltés!")
+
+      res.send("Sikeres feltoltés!")
+    })
+    
+    connection.end()    
+
+  })
   
   app.post('/beerkezett', (req, res) => {
     var mysql = require('mysql')
