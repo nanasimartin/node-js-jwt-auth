@@ -54,7 +54,7 @@ module.exports = function(app) {
     
       console.log("Sikeres feltoltés!")
 
-      res.send("Sikeres feltoltés!")
+      res.send("Sikeres feltoltés!" )
     })
     
     connection.end()    
